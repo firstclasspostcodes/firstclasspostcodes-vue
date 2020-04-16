@@ -1,28 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <PostcodeLookup :apiKey="apiKey" :apiOverrides="apiOverrides">
+      <template v-slot:input="{ onLookup }">
+        <fieldset>
+          <legend>Find your address</legend>
+          <Input v-on:lookup="onLookup" />
+        </fieldset>
+      </template>
+    </PostcodeLookup>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import PostcodeLookup from './components/PostcodeLookup.vue';
+import Input from './components/Input.vue';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    HelloWorld
-  }
+    PostcodeLookup,
+    Input,
+  },
+  data() {
+    return {
+      apiKey: process.env.VUE_APP_API_KEY,
+      apiOverrides: {
+        endpoint: process.env.VUE_APP_API_ENDPOINT,
+      },
+    };
+  },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

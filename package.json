@@ -1,14 +1,25 @@
 {
-  "name": "firstclasspostcodes-vue",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@firstclasspostcodes/vue",
+  "version": "0.0.0",
+  "homepage": "https://github.com/firstclasspostcodes/firstclasspostcodes-vue",
+  "author": "Firstclasspostcodes <support@firstclasspostcodes.com> (https://firstclasspostcodes.com/)",
+  "keywords": [
+    "postcodes",
+    "postcode lookup",
+    "firstclasspostcodes",
+    "api",
+    "vue"
+  ],
+  "main": "dist/postcodelookup.common.js",
   "scripts": {
+    "commit": "npx git-cz",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name postcodelookup ./src/components/index.js",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@firstclasspostcodes/js": "^1.6.2",
     "core-js": "^3.6.4",
     "vue": "^2.6.11"
   },
@@ -23,6 +34,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^6.2.2",
+    "git-cz": "^4.3.1",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
     "vue-template-compiler": "^2.6.11"
