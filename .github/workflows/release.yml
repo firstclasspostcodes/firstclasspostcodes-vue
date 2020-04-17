@@ -1,0 +1,63 @@
+name: Build Package
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      mock-api:
+        image: firstclasspostcodes/mock:latest
+        env:
+          PORT: 2345
+        ports:
+          - '2345:2345'
+
+    env:
+      CYPRESS_API_URL: http://localhost:2345
+      CYPRESS_API_KEY: '111111111111'
+      VUE_APP_API_ENDPOINT: http://localhost:2345
+      VUE_APP_API_KEY: '111111111111'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Run tests
+        run: npm test:unit
+      - name: Build library
+        run: npm run build
+      - name: Cypress Suite
+        uses: cypress-io/github-action@v1
+        with:
+          browser: chrome
+          headless: true
+          record: true
+          start: npm run serve
+        env:
+          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Upload Cypress Artifacts (on failure)
+        uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: Cypress Artifacts
+          path: cypress/videos
+      - name: Semantic Release
+        id: semantic
+        uses: cycjimmy/semantic-release-action@v2
+        with:
+          branch: master
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}

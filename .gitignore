@@ -2,6 +2,11 @@
 node_modules
 /dist
 
+# testing
+/cypress/screenshots
+/cypress/videos
+/coverage
+
 # local env files
 .env.local
 .env.*.local

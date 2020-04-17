@@ -3,6 +3,10 @@ module.exports = {
   env: {
     node: true,
   },
+  globals: {
+    Cypress: true,
+    cy: true,
+  },
   extends: ['plugin:vue/essential', 'eslint:recommended', '@vue/prettier'],
   parserOptions: {
     parser: 'babel-eslint',
@@ -13,10 +17,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)',
-      ],
+      files: ['jest.setup.js', '**/src/**/*.{integration,test}.js'],
       env: {
         jest: true,
       },

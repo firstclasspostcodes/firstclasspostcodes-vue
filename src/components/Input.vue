@@ -6,7 +6,7 @@
       label="Postcode Lookup"
       :classNames="inputClassNames"
       v-on:keyup.enter="handleLookup"
-      v-model="fieldEvent"
+      v-model="value"
     >
       <button :class="inputClassNames.button" v-on:click="handleLookup">
         Lookup
@@ -17,21 +17,22 @@
 
 <script>
 import Field from './Field.vue';
+
 export default {
-  inject: ['client', 'classNames'],
+  inject: ['classNames'],
   components: {
     Field,
   },
   data() {
-    const { input: inputClassNames = {} } = this.classNames;
+    const { input: inputClassNames = {} } = this.classNames || {};
     return {
-      inputClassNames: inputClassNames || {},
-      fieldEvent: {},
+      inputClassNames,
+      value: '',
     };
   },
   methods: {
     handleLookup() {
-      this.$emit('lookup', this.fieldEvent.target.value);
+      this.$emit('lookup', this.value);
     },
   },
 };
