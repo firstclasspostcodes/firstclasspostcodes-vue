@@ -34,7 +34,7 @@ jobs:
       - name: Lint
         run: npm run lint
       - name: Run tests
-        run: npm test:unit
+        run: npm test
       - name: Build library
         run: npm run build
       - name: Cypress Suite
