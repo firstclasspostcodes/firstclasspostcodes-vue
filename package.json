@@ -9,6 +9,7 @@
     "build": "vue-cli-service build --target lib --name postcodelookup ./src/components/index.js",
     "test:e2e": "vue-cli-service test:e2e --headless --browser chrome",
     "test:unit": "vue-cli-service test:unit",
+    "test": "npm run test:unit",
     "lint": "vue-cli-service lint"
   },
   "main": "dist/postcodelookup.common.js",
