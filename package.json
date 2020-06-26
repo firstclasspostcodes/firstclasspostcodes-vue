@@ -19,7 +19,7 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.10.1",
+    "@testing-library/jest-dom": "^5.11.0",
     "@testing-library/vue": "^5.0.4",
     "@vue/cli-plugin-babel": "~4.4.4",
     "@vue/cli-plugin-e2e-cypress": "^4.4.6",
