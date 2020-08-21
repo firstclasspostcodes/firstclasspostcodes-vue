@@ -16,7 +16,7 @@
   "dependencies": {
     "@firstclasspostcodes/js": "^1.6.2",
     "core-js": "^3.6.4",
-    "vue": "^2.6.11"
+    "vue": "^2.6.12"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.3",
@@ -38,7 +38,7 @@
     "jest-axe": "^3.5.0",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.12"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
