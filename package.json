@@ -27,7 +27,7 @@
     "@vue/cli-plugin-unit-jest": "~4.5.4",
     "@vue/cli-service": "~4.5.3",
     "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/test-utils": "1.0.3",
+    "@vue/test-utils": "1.0.4",
     "babel-eslint": "^10.1.0",
     "cypress": "^4.12.1",
     "cypress-terminal-report": "^1.4.2",
