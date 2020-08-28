@@ -37,7 +37,7 @@
     "git-cz": "^4.7.1",
     "jest-axe": "^3.5.0",
     "lint-staged": "^10.2.13",
-    "prettier": "^2.0.5",
+    "prettier": "^2.1.1",
     "vue-template-compiler": "^2.6.12"
   },
   "gitHooks": {
