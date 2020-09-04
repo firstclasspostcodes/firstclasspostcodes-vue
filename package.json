@@ -35,7 +35,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^6.2.2",
     "git-cz": "^4.7.1",
-    "jest-axe": "^3.5.0",
+    "jest-axe": "^4.0.0",
     "lint-staged": "^10.3.0",
     "prettier": "^2.1.1",
     "vue-template-compiler": "^2.6.12"
